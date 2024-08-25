@@ -10,4 +10,5 @@ graph_notebooks_KuzuGraphDemo_ipynb,https://github.com/run-llama/llama_index/blo
 graph_notebooks_Export_Query_Results_to_NetworkX_ipynb,https://docs.kuzudb.com/tutorials/#python,Kùzu Learning Resources
 graph_notebooks_Export_Query_Results_to_NetworkX_ipynb,https://github.com/run-llama/llama_index/blob/main/docs/docs/examples/index_structs/knowledge_graph/KuzuGraphDemo.ipynb,Colab Notebook
 graph_demo_old-kuzu-use_ipynb,https://github.com/analect/quarto-graph-experiments/main/docs/demo/kuzu-use.ipynb,Source file
+graph_demo_kuzu-use-repl_qmd,https://github.com/DylanShang/kuzu-lab/blob/main/examples/Quarto/repl-example.qmd,Source file
 graph_demo_kuzu-use_qmd,https://github.com/analect/quarto-graph-experiments/main/docs/demo/kuzu-use.qmd,Source file

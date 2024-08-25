@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Dylan Shang">
+<meta name="dcterms.date" content="2024-08-25">
+<meta name="description" content="Source file">
 
-<title>jupyter-lite.ipynb – Quarto Graph Experiments</title>
+<title>kuzu / pyvis leverage jupyterlite repl – Quarto Graph Experiments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../docs/demo/old-kuzu-use.html" rel="next">
+<link href="../../docs/demo/kuzu-use.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,12 +73,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="jupyter-lite.ipynb – Quarto Graph Experiments">
-<meta property="og:description" content="">
+<meta property="og:title" content="kuzu / pyvis leverage jupyterlite repl – Quarto Graph Experiments">
+<meta property="og:description" content="* Source file">
 <meta property="og:site_name" content="Quarto Graph Experiments">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -137,33 +142,86 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/demo/kuzu-use-repl.html">kuzu / pyvis leverage jupyterlite repl</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/demo/kuzu-use.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto graph experiment - leveraging Kuzu, PyVis (qmd)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/demo/kuzu-use-repl.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">kuzu / pyvis leverage jupyterlite repl</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/demo/old-kuzu-use.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto graph experiment - leveraging Kuzu, PyVis</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#editing-configuration" id="toc-editing-configuration" class="nav-link active" data-scroll-target="#editing-configuration">Editing Configuration</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.dev/analect/quarto-graph-experiments/blob/main/dist/repl/jupyter-lite.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/analect/quarto-graph-experiments/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">jupyter-lite.ipynb</h1>
+<h1 class="title">kuzu / pyvis leverage jupyterlite repl</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">kuzu</div>
+    <div class="quarto-category">pyvis</div>
+    <div class="quarto-category">quarto</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <ul>
+    <li><a href="https://github.com/DylanShang/kuzu-lab/blob/main/examples/Quarto/repl-example.qmd">Source file</a></li>
+    </ul>
+  </div>
 </div>
 
 
+<div class="quarto-title-meta column-page-right">
 
-<div class="quarto-title-meta">
-
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p><a href="https://github.com/DylanShang">Dylan Shang</a> </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 25, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -173,20 +231,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This notebook is the preferred source of site-specific runtime <a href="https://jupyterlite.readthedocs.io/en/latest/configuring.html">configuration</a> for a JupyterLite app, and will override any configuration in <a href="./jupyter-lite.json"><code>jupyter-lite.json</code></a>.</p>
-<section id="editing-configuration" class="level2">
-<h2 class="anchored" data-anchor-id="editing-configuration">Editing Configuration</h2>
-<p>The configuration is stored in this Notebook’s metadata under the <code>jupyter-lite</code> key. To edit the configuration in JupyterLab.</p>
-<ul>
-<li>open the <em>Property Inspector</em> sidebar</li>
-<li>expand the <em>Advanced Tools</em> section</li>
-<li>edit the <code>jupyter-lite</code> metadata sub-key</li>
-<li>press the “check” icon</li>
-<li>save the notebook</li>
-</ul>
+<p>Try our experimental JupyterLite console with Kuzu!</p>
+<iframe src="https://kuzu-lab.netlify.app/repl/?toolbar=1&amp;theme=JupyterLab+Light&amp;kernel=python&amp;code=%0Aimport+pyodide_js%0Aawait+pyodide_js.loadPackage%28%22https%3A%2F%2Fstorage.googleapis.com%2Fibis-wasm-wheels%2Fpyarrow-16.0.0.dev2661%252Bg9bddb87fd-cp311-cp311-emscripten_3_1_46_wasm32.whl%22%29%0A&amp;code=%25clear&amp;code=import+micropip%2Cnetworkx+as+nx%2Cpandas+as+pd%2Cnumpy+as+np%2Cjs%2Cpyarrow+as+pa%0Afrom+IPython.display+import+display%2C+HTML%0Aawait+micropip.install%28%5B%22tzdata%22%2C%22pyvis%22%2C%22kuzu_wasm%22%5D%29%0Aimport+kuzu_wasm%0Afrom+kuzu_wasm.utils+import+%2A&amp;code=kuzu+%3D+await+kuzu_wasm.init%28%22https%3A%2F%2Fkuzu-lab.netlify.app%2Fpackage%2Fdist%2Fkuzu.js%22%29%0Adb+%3D+await+kuzu.Database%28%29%0Aconn+%3D+await+kuzu.Connection%28db%29&amp;code=%23+get+remote+csv+to+wasm+filesystem%0Akuzu.FS.writeFile%28%22%2Ffollows.csv%22%2Cawait+%28await+js.fetch%28%22https%3A%2F%2Fraw.githubusercontent.com%2Fkuzudb%2Fkuzu%2Fmaster%2Fdataset%2Fdemo-db%2Fcsv%2Ffollows.csv%22%29%29.text%28%29%29%0Akuzu.FS.writeFile%28%22%2Fcity.csv%22%2Cawait+%28await+js.fetch%28%22https%3A%2F%2Fraw.githubusercontent.com%2Fkuzudb%2Fkuzu%2Fmaster%2Fdataset%2Fdemo-db%2Fcsv%2Fcity.csv%22%29%29.text%28%29%29%0Akuzu.FS.writeFile%28%22%2Flives-in.csv%22%2Cawait+%28await+js.fetch%28%22https%3A%2F%2Fraw.githubusercontent.com%2Fkuzudb%2Fkuzu%2Fmaster%2Fdataset%2Fdemo-db%2Fcsv%2Flives-in.csv%22%29%29.text%28%29%29%0Akuzu.FS.writeFile%28%22%2Fuser.csv%22%2Cawait+%28await+js.fetch%28%22https%3A%2F%2Fraw.githubusercontent.com%2Fkuzudb%2Fkuzu%2Fmaster%2Fdataset%2Fdemo-db%2Fcsv%2Fuser.csv%22%29%29.text%28%29%29&amp;code=%23+create+schema+and+import+data%0Aawait+conn.execute%28%22CREATE+NODE+TABLE+User%28name+STRING%2C+age+INT64%2C+PRIMARY+KEY+%28name%29%29%22%29%0Aawait+conn.execute%28%22CREATE+NODE+TABLE+City%28name+STRING%2C+population+INT64%2C+PRIMARY+KEY+%28name%29%29%22%29%0Aawait+conn.execute%28%22CREATE+REL+TABLE+Follows%28FROM+User+TO+User%2C+since+INT64%29%22%29%0Aawait+conn.execute%28%22CREATE+REL+TABLE+LivesIn%28FROM+User+TO+City%29%22%29%0Aawait+conn.execute%28%27COPY+User+FROM+%22%2Fuser.csv%22%3B%27%29%0Aawait+conn.execute%28%27COPY+City+FROM+%22%2Fcity.csv%22%3B%27%29%0Aawait+conn.execute%28%27COPY+Follows+FROM+%22%2Ffollows.csv%22%3B%27%29%0Aawait+conn.execute%28%27COPY+LivesIn+FROM+%22%2Flives_in.csv%22%3B%27%29%0Ares+%3D+await+conn.execute%28%22MATCH+%28a%3AUser%29-%5Bf%3AFollows%5D-%3E%28b%3AUser%29RETURN+a.name%2C+b.name%2C+f.since%22%29%0Adf+%3D+toDf%28res%29%0Adf&amp;code=%23dislay+the+graph%0Afrom+IPython.display+import+HTML%0Afrom+pyvis.network+import+Network%0Ares_2+%3D+await+conn.execute%28%22MATCH+%28a%3AUser%29-%5Bf%3AFollows%5D-%3E%28b%3AUser%29RETURN+a%2Cf%2Cb%22%29%0AG+%3D+toNetworkx%28res_2%2Cdirected+%3D+True%29%0Ag+%3D+Network%28height%3D%22400px%22%2Cwidth%3D%22500px%22%2Cnotebook%3DTrue%2C+cdn_resources%3D%27remote%27%2Cdirected+%3D+True%2Cneighborhood_highlight+%3D+True%29%0Ag.from_nx%28G%29%0Afor+i+in+range%28len%28g.nodes%29%29%3A+g.nodes%5Bi%5D%5B%22label%22%5D+%3D+g.nodes%5Bi%5D%5B%22name%22%5D%0Ahtml+%3D+g.generate_html%28notebook%3DTrue%29%0AHTML%28f%27%3Cdiv+style%3D%22height%3A%7Bg.height%7D%22%3E%7Bhtml%7D%3C%2Fdiv%3E%27%2C+metadata%3D%7B%22isolated%22%3A+True%7D%2C+%29" style="width:1000px;height:600px;">
+</iframe>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -609,9 +658,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation column-page-right">
+  <div class="nav-page nav-page-previous">
+      <a href="../../docs/demo/kuzu-use.html" class="pagination-link" aria-label="Quarto graph experiment - leveraging Kuzu, PyVis (qmd)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Quarto graph experiment - leveraging Kuzu, PyVis (qmd)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../docs/demo/old-kuzu-use.html" class="pagination-link" aria-label="Quarto graph experiment - leveraging Kuzu, PyVis">
+        <span class="nav-page-text">Quarto graph experiment - leveraging Kuzu, PyVis</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/analect/quarto-graph-experiments/blob/main/dist/repl/jupyter-lite.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/analect/quarto-graph-experiments/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/analect/quarto-graph-experiments/edit/main/docs/demo/kuzu-use-repl.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/analect/quarto-graph-experiments/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
