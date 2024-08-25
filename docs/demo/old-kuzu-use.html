@@ -268,32 +268,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div id="cell-1" class="cell" data-trusted="true">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>pip install numpy pandas tzdata</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyodide_js</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> micropip,networkx <span class="im">as</span> nx,pandas <span class="im">as</span> pd,numpy <span class="im">as</span> np,matplotlib.pyplot <span class="im">as</span> plt,pyodide_js,js</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, HTML</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> pyodide_js.loadPackage(<span class="st">"https://storage.googleapis.com/ibis-wasm-wheels/pyarrow-16.0.0.dev2661%2Bg9bddb87fd-cp311-cp311-emscripten_3_1_46_wasm32.whl"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyarrow <span class="im">as</span> pa,pandas <span class="im">as</span> pd</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> kuzu_wasm</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> micropip.install([<span class="st">"tzdata"</span>,<span class="st">"pyvis"</span>,<span class="st">"kuzu_wasm"</span>])</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyarrow <span class="im">as</span> pa,kuzu_wasm</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> kuzu_wasm.utils <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-2" class="cell" data-trusted="true">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>kuzu <span class="op">=</span> <span class="cf">await</span> kuzu_wasm.init()</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>kuzu <span class="op">=</span> <span class="cf">await</span> kuzu_wasm.init(<span class="st">"https://kuzu-lab.netlify.app/package/dist/kuzu.js"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> <span class="cf">await</span> kuzu.Database()</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> <span class="cf">await</span> kuzu.Connection(db)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-3" class="cell" data-trusted="true">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>conn.execute(<span class="st">"CREATE NODE TABLE User(name STRING, age INT64, PRIMARY KEY (name))"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>conn.execute(<span class="st">"CREATE NODE TABLE City(name STRING, population INT64, PRIMARY KEY (name))"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>conn.execute(<span class="st">"CREATE REL TABLE Follows(FROM User TO User, since INT64)"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>conn.execute(<span class="st">"CREATE REL TABLE LivesIn(FROM User TO City)"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>conn.execute(<span class="ss">f'COPY User FROM "</span><span class="sc">{</span>kuzu<span class="sc">.</span>upload(<span class="st">"user.csv"</span>)<span class="sc">}</span><span class="ss">";'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>conn.execute(<span class="ss">f'COPY City FROM "</span><span class="sc">{</span>kuzu<span class="sc">.</span>upload(<span class="st">"city.csv"</span>)<span class="sc">}</span><span class="ss">";'</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>conn.execute(<span class="ss">f'COPY Follows FROM "</span><span class="sc">{</span>kuzu<span class="sc">.</span>upload(<span class="st">"follows.csv"</span>)<span class="sc">}</span><span class="ss">";'</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>conn.execute(<span class="ss">f'COPY LivesIn FROM "</span><span class="sc">{</span>kuzu<span class="sc">.</span>upload(<span class="st">"lives_in.csv"</span>)<span class="sc">}</span><span class="ss">";'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get remote csv to wasm filesystem</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kuzu.FS.writeFile(<span class="st">"/follows.csv"</span>,<span class="cf">await</span> (<span class="cf">await</span> js.fetch(<span class="st">"https://raw.githubusercontent.com/kuzudb/kuzu/master/dataset/demo-db/csv/follows.csv"</span>)).text())</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>kuzu.FS.writeFile(<span class="st">"/city.csv"</span>,<span class="cf">await</span> (<span class="cf">await</span> js.fetch(<span class="st">"https://raw.githubusercontent.com/kuzudb/kuzu/master/dataset/demo-db/csv/city.csv"</span>)).text())</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>kuzu.FS.writeFile(<span class="st">"/lives-in.csv"</span>,<span class="cf">await</span> (<span class="cf">await</span> js.fetch(<span class="st">"https://raw.githubusercontent.com/kuzudb/kuzu/master/dataset/demo-db/csv/lives-in.csv"</span>)).text())</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>kuzu.FS.writeFile(<span class="st">"/user.csv"</span>,<span class="cf">await</span> (<span class="cf">await</span> js.fetch(<span class="st">"https://raw.githubusercontent.com/kuzudb/kuzu/master/dataset/demo-db/csv/user.csv"</span>)).text())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-4" class="cell" data-trusted="true">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> <span class="cf">await</span> conn.execute(<span class="st">"MATCH (a:User)-[f:Follows]-&gt;(b:User)RETURN a.name, b.name, f.since"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> toDf(res)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create schema and import data</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> conn.execute(<span class="st">"CREATE NODE TABLE User(name STRING, age INT64, PRIMARY KEY (name))"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> conn.execute(<span class="st">"CREATE NODE TABLE City(name STRING, population INT64, PRIMARY KEY (name))"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> conn.execute(<span class="st">"CREATE REL TABLE Follows(FROM User TO User, since INT64)"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> conn.execute(<span class="st">"CREATE REL TABLE LivesIn(FROM User TO City)"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> conn.execute(<span class="st">'COPY User FROM "/user.csv";'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> conn.execute(<span class="st">'COPY City FROM "/city.csv";'</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> conn.execute(<span class="st">'COPY Follows FROM "/follows.csv";'</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> conn.execute(<span class="st">'COPY LivesIn FROM "/lives_in.csv";'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-5" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> <span class="cf">await</span> conn.execute(<span class="st">"MATCH (a:User)-[f:Follows]-&gt;(b:User)RETURN a.name, b.name, f.since"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> toDf(res)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-6" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyvis.network <span class="im">import</span> Network</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>res_2 <span class="op">=</span> <span class="cf">await</span> conn.execute(<span class="st">"MATCH (a:User)-[f:Follows]-&gt;(b:User)RETURN a,f,b"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> toNetworkx(res_2,directed <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> Network(notebook<span class="op">=</span><span class="va">True</span>, cdn_resources<span class="op">=</span><span class="st">'remote'</span>,directed <span class="op">=</span> <span class="va">True</span>,neighborhood_highlight <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>g.from_nx(G)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(g.nodes)):</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    g.nodes[i][<span class="st">"label"</span>] <span class="op">=</span> g.nodes[i][<span class="st">"name"</span>]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>html <span class="op">=</span> g.generate_html(notebook<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>HTML(<span class="ss">f'&lt;div style="height:</span><span class="sc">{</span>g<span class="sc">.</span>height<span class="sc">}</span><span class="ss">"&gt;</span><span class="sc">{</span>html<span class="sc">}</span><span class="ss">&lt;/div&gt;'</span>, metadata<span class="op">=</span>{<span class="st">"isolated"</span>: <span class="va">True</span>}, )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
