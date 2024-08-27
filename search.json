@@ -248,6 +248,16 @@
     "text": "Editing Configuration\nThe configuration is stored in this Notebook’s metadata under the jupyter-lite key. To edit the configuration in JupyterLab.\n\nopen the Property Inspector sidebar\nexpand the Advanced Tools section\nedit the jupyter-lite metadata sub-key\npress the “check” icon\nsave the notebook"
   },
   {
+    "objectID": "docs/demo/kuzu-quarto-live.html",
+    "href": "docs/demo/kuzu-quarto-live.html",
+    "title": "Quarto graph experiment - DylanShang version",
+    "section": "",
+    "text": "&lt;script src=\"./../../dist/coi-serviceworker.js\"&gt;&lt;/script&gt;",
+    "crumbs": [
+      "Quarto graph experiment - DylanShang version"
+    ]
+  },
+  {
     "objectID": "docs/notebooks/mesonetwork.html",
     "href": "docs/notebooks/mesonetwork.html",
     "title": "Réseau entre les citations des avis du CCNE",
