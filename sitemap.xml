@@ -2,66 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://analect.github.io/quarto-graph-experiments/docs/notebooks/networks_author.html</loc>
-    <lastmod>2024-08-27T12:36:52.153Z</lastmod>
+    <lastmod>2024-08-28T08:21:03.714Z</lastmod>
   </url>
   <url>
     <loc>https://analect.github.io/quarto-graph-experiments/docs/demo/kuzu-use-repl.html</loc>
-    <lastmod>2024-08-27T12:36:52.101Z</lastmod>
+    <lastmod>2024-08-28T08:21:03.686Z</lastmod>
   </url>
   <url>
     <loc>https://analect.github.io/quarto-graph-experiments/docs/demo/kuzu-quarto-live.html</loc>
-    <lastmod>2024-08-27T12:36:52.101Z</lastmod>
-  </url>
-  <url>
-    <loc>https://analect.github.io/quarto-graph-experiments/dist/repl/jupyter-lite.html</loc>
-    <lastmod>1985-10-26T08:15:00.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://analect.github.io/quarto-graph-experiments/dist/lab/jupyter-lite.html</loc>
-    <lastmod>1985-10-26T08:15:00.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://analect.github.io/quarto-graph-experiments/dist/edit/jupyter-lite.html</loc>
-    <lastmod>1985-10-26T08:15:00.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://analect.github.io/quarto-graph-experiments/docs/notebooks/KuzuGraphDemo.html</loc>
-    <lastmod>2024-08-27T12:36:52.141Z</lastmod>
-  </url>
-  <url>
-    <loc>https://analect.github.io/quarto-graph-experiments/docs/notebooks/Export_Query_Results_to_NetworkX.html</loc>
-    <lastmod>2024-08-27T12:36:52.137Z</lastmod>
-  </url>
-  <url>
-    <loc>https://analect.github.io/quarto-graph-experiments/docs/demo/old-kuzu-use.html</loc>
-    <lastmod>2024-08-27T12:36:52.101Z</lastmod>
+    <lastmod>2024-08-28T08:21:03.686Z</lastmod>
   </url>
   <url>
     <loc>https://analect.github.io/quarto-graph-experiments/docs/notebooks/General_Kùzu_Demo.html</loc>
-    <lastmod>2024-08-27T12:36:52.137Z</lastmod>
+    <lastmod>2024-08-28T08:21:03.690Z</lastmod>
   </url>
   <url>
-    <loc>https://analect.github.io/quarto-graph-experiments/dist/consoles/jupyter-lite.html</loc>
-    <lastmod>1985-10-26T08:15:00.000Z</lastmod>
+    <loc>https://analect.github.io/quarto-graph-experiments/docs/demo/old-kuzu-use.html</loc>
+    <lastmod>2024-08-28T08:21:03.686Z</lastmod>
   </url>
   <url>
-    <loc>https://analect.github.io/quarto-graph-experiments/dist/jupyter-lite.html</loc>
-    <lastmod>1985-10-26T08:15:00.000Z</lastmod>
+    <loc>https://analect.github.io/quarto-graph-experiments/docs/notebooks/Export_Query_Results_to_NetworkX.html</loc>
+    <lastmod>2024-08-28T08:21:03.690Z</lastmod>
   </url>
   <url>
-    <loc>https://analect.github.io/quarto-graph-experiments/dist/notebooks/jupyter-lite.html</loc>
-    <lastmod>1985-10-26T08:15:00.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://analect.github.io/quarto-graph-experiments/dist/tree/jupyter-lite.html</loc>
-    <lastmod>1985-10-26T08:15:00.000Z</lastmod>
+    <loc>https://analect.github.io/quarto-graph-experiments/docs/notebooks/KuzuGraphDemo.html</loc>
+    <lastmod>2024-08-28T08:21:03.694Z</lastmod>
   </url>
   <url>
     <loc>https://analect.github.io/quarto-graph-experiments/docs/demo/kuzu-use.html</loc>
-    <lastmod>2024-08-27T12:36:52.101Z</lastmod>
+    <lastmod>2024-08-28T08:21:03.686Z</lastmod>
   </url>
   <url>
     <loc>https://analect.github.io/quarto-graph-experiments/docs/notebooks/mesonetwork.html</loc>
-    <lastmod>2024-08-27T12:36:52.141Z</lastmod>
+    <lastmod>2024-08-28T08:21:03.694Z</lastmod>
   </url>
 </urlset>
