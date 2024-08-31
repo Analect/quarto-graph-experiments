@@ -1,7 +1,7 @@
 Category
-networkx
-quarto
-kuzu
-llamaindex
-yfiles
 pyvis
+llamaindex
+kuzu
+networkx
+yfiles
+quarto
