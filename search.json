@@ -54,7 +54,7 @@
     "href": "docs/demo/kuzu-quarto-live.html",
     "title": "Quarto graph experiment - DylanShang version",
     "section": "",
-    "text": "Generate self-contained graph\n\n\n\n\n\n\nConnect to a pre-existing kuzu-test database",
+    "text": "What is in the data folder?\n\n\n\n\n\n\n\n\nGenerate self-contained graph\n\n\n\n\n\n\n\n\nTry to Connect to a pre-existing kuzu-test database\n\n\n\n\n\n\nWould expect to get returned something like:\n┌──────────────┬────────┬───────────────┬─────────┐\n│ name         │ type   │ database name │ comment │\n│ STRING       │ STRING │ STRING        │ STRING  │\n├──────────────┼────────┼───────────────┼─────────┤\n│ has_source   │ REL    │ local(kuzu)   │         │\n│ has_category │ REL    │ local(kuzu)   │         │\n│ Author       │ NODE   │ local(kuzu)   │         │\n│ Category     │ NODE   │ local(kuzu)   │         │\n│ authored_by  │ REL    │ local(kuzu)   │         │\n│ Source       │ NODE   │ local(kuzu)   │         │\n│ Document     │ NODE   │ local(kuzu)   │         │\n└──────────────┴────────┴───────────────┴─────────┘\nInstead, I’m getting back this:\n./data/kuzu-test\nname|type|database name|comment\n\nget_as_df\nWhich would suggest a connection is not being made to the kuzu database.",
     "crumbs": [
       "Quarto graph experiment - DylanShang version"
     ]
